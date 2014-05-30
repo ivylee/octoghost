@@ -18,3 +18,15 @@ Where octopress-posts is a directory with the Octopress posts and ghost-data is 
 Now go to `/ghost/debug` and import the obtained JSON file.
 
 If everything goes well you should be able to signin again and all your Octopress posts will be there.
+
+Octopress HTML 2 Markdown
+---
+
+A python script to generate Octopress markdown files from published HTML files.
+
+Specify:
+
+* Octopress directory
+* Published blog directory
+* Generate a list of absolute paths of all the published HTML files using command line utilities and
+  save the list to a file
