@@ -121,7 +121,7 @@ for markdown_file in glob.glob("%s/*.markdown" % sys.argv[ARG_INPUT_FOLDER]):
                         post["updated_at"] = t
                         post["published_at"] = t
                     elif field == "categories":
-                        the_tags = value.split(" ")
+                        the_tags = value.split(",")
                         for tag in the_tags:
                             if not categories.has_key(tag):
                                 categories[tag] = next_tag_id
