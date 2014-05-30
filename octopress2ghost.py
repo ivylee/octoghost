@@ -26,6 +26,7 @@ import datetime
 import time
 import glob
 import codecs
+import os
 
 __author__ = "Simone Margaritelli, Julián Romero"
 __copyright__ = "Copyright 2014"
@@ -76,7 +77,8 @@ for markdown_file in glob.glob("%s/*.markdown" % sys.argv[ARG_INPUT_FOLDER]):
             "updated_by":   author_id,
             "published_by": author_id,
             "language":     lang,
-            "status":       "published"
+            "status":       "published",
+            "slug":         os.path.basename(markdown_file).split('.')[0]
             }
     markdown = []
     with codecs.open(markdown_file, "r", "utf-8") as f:
@@ -103,10 +105,6 @@ for markdown_file in glob.glob("%s/*.markdown" % sys.argv[ARG_INPUT_FOLDER]):
                     if field == "title":
                         title = re.sub(r'^"|"$', '', value)
                         post["title"] = title
-                        post["slug"] = slugify(title)
-                    elif field == "slug":
-                        # FIX: Use slug if available
-                        post["slug"] = value
                     elif field == "published":
                         post["status"] = value == "true" and "published" or "draft"
                     elif field == "date":
