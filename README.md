@@ -1,3 +1,5 @@
+These scripts worked for me. There's no guarantee they will work for you.
+
 Octopress 2 Ghost
 ---
 
